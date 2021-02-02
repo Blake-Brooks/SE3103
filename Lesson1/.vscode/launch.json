@@ -24,6 +24,15 @@
             "vmArgs": "-ea",
             "mainClass": "test.CalculatorTest",
             "projectName": "Lesson1_4122fd6c"
+        },
+
+        {
+            "type": "java",
+            "name": "PiggyBankTest",
+            "request": "launch",
+            "vmArgs": "-ea",
+            "mainClass": "test.PiggyBankTest",
+            "projectName": "Lesson1_4122fd6c"
         }
     ]
 }
