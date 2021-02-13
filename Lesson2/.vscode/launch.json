@@ -6,13 +6,6 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch Main",
-            "request": "launch",
-            "mainClass": "Main",
-            "projectName": "Lesson1_e104141f"
-        },
-        {
-            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -21,24 +14,17 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "vmArgs": "-ea",
             "mainClass": "Main",
-            "projectName": "Lesson1_4122fd6c"
+            "projectName": "Lesson2_e1041420"
         },
         {
             "type": "java",
-            "name": "CalculatorTest",
+            "name": "BaseballGameTest",
             "request": "launch",
             "vmArgs": "-ea",
-            "mainClass": "test.CalculatorTest",
-            "projectName": "Lesson1_4122fd6c"
-        },
-        {
-            "type": "java",
-            "name": "PiggyBankTest",
-            "request": "launch",
-            "vmArgs": "-ea",
-            "mainClass": "test.PiggyBankTest",
-            "projectName": "Lesson1_4122fd6c"
+            "mainClass": "test.BaseballGameTest",
+            "projectName": "Lesson2_e1041420"
         }
     ]
 }
