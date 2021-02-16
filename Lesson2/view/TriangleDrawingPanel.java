@@ -95,4 +95,8 @@ public class TriangleDrawingPanel {
     public JFrame getWindow() {
         return window;
     }
+
+    public TriangleCanvas getCanvas(){
+        return canvas;
+    }
 }
