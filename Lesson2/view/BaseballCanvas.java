@@ -1,8 +1,6 @@
 package view;
 
 import javax.swing.JPanel;
-import javax.swing.border.StrokeBorder;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -36,6 +34,11 @@ public class BaseballCanvas extends JPanel {
             g2.setFont(new Font("Courier", Font.BOLD, 30));
             g2.drawString("Click <Play> to Start", 70, 150);
         } else{
+            if(state == BaseballGamePanel.GameState.GAMEOVER){
+                g2.setColor(Color.red);
+                g2.setFont(new Font("Courier", Font.BOLD, 30));
+                g2.drawString("Game over", 150, 160);
+            }
             g2.setColor(Color.yellow);
             g2.setFont(new Font("Courier", Font.BOLD, 14));
             // draw balls
