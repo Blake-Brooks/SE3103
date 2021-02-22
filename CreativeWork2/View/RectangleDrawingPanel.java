@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
 
+import Controller.RectangleEventListener;
+
 import java.awt.GridLayout;
 
 public class RectangleDrawingPanel {
@@ -18,7 +20,6 @@ public class RectangleDrawingPanel {
     private JRadioButton yellowButton = new JRadioButton("Yellow");
     private JRadioButton blueButton = new JRadioButton("Blue");
     private JButton clearButton = new JButton("Clear");
-    private JButton exitButton = new JButton("Exit");
 
     public RectangleDrawingPanel(JFrame window){
         this.window = window;
@@ -42,8 +43,38 @@ public class RectangleDrawingPanel {
         radioPanel.setBorder(name);
         JPanel buttonPart = new JPanel();
         buttonPart.add(clearButton);
-        buttonPart.add(exitButton);
         southPanel.add(buttonPart);
+        canvas = new RectangleDrawingCanvas(this);
+        cp.add(BorderLayout.CENTER, canvas);
+        RectangleEventListener listener = new RectangleEventListener(this);
+        clearButton.addActionListener(listener);
+        redButton.addActionListener(listener);
+        yellowButton.addActionListener(listener);
+        blueButton.addActionListener(listener);
+    }
+ 
+       public JButton getClearButton() {
+        return clearButton;
     }
 
+    public JRadioButton getRedButton() {
+        return redButton;
+    }
+
+    public JRadioButton getYellowButton() {
+        return yellowButton;
+    }
+
+    public JRadioButton getBlueButton() {
+
+        return blueButton;
+    }
+
+    public JFrame getWindow(){
+        return window;
+    }
+
+    public RectangleDrawingCanvas getCanvas(){
+        return canvas;
+    }
 }
