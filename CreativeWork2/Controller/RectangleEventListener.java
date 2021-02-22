@@ -43,6 +43,25 @@ public class RectangleEventListener implements ActionListener, MouseListener{
     @Override
     public void mousePressed(MouseEvent e) {
         ++clicks;
+        switch(clicks){
+            case 1: 
+            rectangle = new Rectangle();
+            rectangle.setPos(0, e.getX(), e.getY());
+            rectangle.setColor(color);
+            panel.getCanvas().getShapes().add(rectangle);
+            break;
+            case 2: 
+            rectangle.setPos(1, e.getX(), e.getY());
+            break;
+            case 3: 
+            rectangle.setPos(2, e.getX(), e.getY());
+            break;
+            case 4:
+            rectangle.setPos(3, e.getX(), e.getY());
+            clicks = 0;
+            break;
+        }
+        panel.getCanvas().repaint();
     }
 
     @Override
