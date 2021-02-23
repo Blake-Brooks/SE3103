@@ -1,4 +1,6 @@
 package Controller;
+
+import javax.swing.event.MouseInputListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -23,7 +25,15 @@ public class RectangleEventListener implements ActionListener, MouseListener{
     @Override
     public void actionPerformed(ActionEvent e){
         Object source = e.getSource();
-        if (source == panel.getClearButton()) {
+        if(source == panel.getExitButton()){
+            JFrame window = panel.getWindow();
+            window.getContentPane().removeAll();
+            var menu = new MenuScreen(window);
+            menu.init();
+            window.pack();
+            window.revalidate();
+        }
+        else if (source == panel.getClearButton()) {
             panel.getCanvas().getShapes().clear();
             panel.getCanvas().repaint();
         } else if(source == panel.getRedButton()){
@@ -36,7 +46,7 @@ public class RectangleEventListener implements ActionListener, MouseListener{
             color = Color.blue;
         }
     }
-
+    
     @Override
     public void mouseClicked(MouseEvent e) {}
 
@@ -60,16 +70,17 @@ public class RectangleEventListener implements ActionListener, MouseListener{
             rectangle.setPos(3, e.getX(), e.getY());
             clicks = 0;
             break;
-        }
-        panel.getCanvas().repaint();
     }
+    panel.getCanvas().repaint();
+}
 
     @Override
-    public void mouseReleased(MouseEvent e){}
+    public void mouseReleased(MouseEvent e) {}
 
     @Override
     public void mouseEntered(MouseEvent e) {}
 
     @Override
     public void mouseExited(MouseEvent e) {}
+    
 }

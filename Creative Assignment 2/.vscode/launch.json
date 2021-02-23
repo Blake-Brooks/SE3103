@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Creative Assignment 2_ad45436"
+        },
+        {
+            "type": "java",
+            "name": "Lauch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "vmArgs": "-ea",
+            "mainClass": "Main",
+            "projectName": "CreativeWork2"
+        }
+    ]
+}

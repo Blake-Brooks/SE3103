@@ -11,7 +11,6 @@ public class Triangle {
             this.y = y;
         }
     }
-
     private Pos[] p = new Pos[3];
     private Color color = Color.white; 
 
