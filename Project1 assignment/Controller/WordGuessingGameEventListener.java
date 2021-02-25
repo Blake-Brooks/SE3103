@@ -1,7 +1,10 @@
 package Controller;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+
+import Model.WordGuess;
 import View.WordGuessPanel;
 
 public class WordGuessingGameEventListener implements ActionListener {
@@ -13,7 +16,10 @@ public class WordGuessingGameEventListener implements ActionListener {
     public void actionPerformed(ActionEvent e){
         Object source = e.getSource();
         if(source == panel.getNewButton()){
-            
+            var wordGuess = new WordGuess();
+            for(var b: panel.getLetterButtons()){
+                b.setEnabled(true);
+            }
         }
     }
 }
