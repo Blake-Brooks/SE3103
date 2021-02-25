@@ -40,4 +40,12 @@ public class WordGuessPanel {
         southPanel.add(newButton);
 
     }
+
+    public JButton getNewButton(){
+        return newButton;
+    }
+
+    public JButton[] getLetterButtons(){
+        return letterButtons;
+    }
 }
