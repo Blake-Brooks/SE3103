@@ -1,9 +1,11 @@
 package Model;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class WordGuess {
+  private int index; 
+  private ArrayList<String> wordPool = new ArrayList<String>();
   public WordGuess(){
-      ArrayList<String> wordPool = new ArrayList<String>();
       wordPool.add("communication");
       wordPool.add("science");
       wordPool.add("programming");
@@ -36,6 +38,12 @@ public class WordGuess {
       wordPool.add("progress");
       wordPool.add("characters");
       wordPool.add("heavily");
-      wordPool.add("ghraphics");
+      wordPool.add("graphics");
+      Random randomIndex = new Random();
+      index =  randomIndex.nextInt(33);
+      wordPool.get(index);
   }  
+  public String getIndex(){
+    return wordPool.get(index);
+  }
 }

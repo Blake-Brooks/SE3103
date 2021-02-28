@@ -1,7 +1,7 @@
 package Controller;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Model.WordGuess;
 import javax.swing.JFrame;
 
 import Model.WordGuess;
@@ -20,6 +20,8 @@ public class WordGuessingGameEventListener implements ActionListener {
             for(var b: panel.getLetterButtons()){
                 b.setEnabled(true);
             }
+        } else {
+            
         }
     }
 }

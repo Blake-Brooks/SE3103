@@ -5,16 +5,24 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import Controller.WordGuessingGameEventListener;
+
 import java.awt.Container;
 import java.awt.GridLayout;
 
 public class WordGuessPanel {
+    public enum GameState{
+        READY, PLAYING, GAMEOVER
+    }
+
     private JFrame window;
     private WordGuessCanvas canvas;
     private JTextField gameKeyField = new JTextField();
     private JTextField guessField = new JTextField();
     private JButton[] letterButtons;
     private JButton newButton = new JButton("New");
+    private GameState gameState = GameState.READY;
     public WordGuessPanel(JFrame window){
         this.window = window;
     }
@@ -32,13 +40,15 @@ public class WordGuessPanel {
         cp.add(BorderLayout.CENTER, canvas);
         JPanel southPanel = new JPanel();
         southPanel.setLayout(new GridLayout(4,7));
+        southPanel.add(newButton);
+
+        WordGuessingGameEventListener keyListener = new WordGuessingGameEventListener(this);
         letterButtons = new JButton[26];
         for(int i = 0; i < 26; i++){
             letterButtons[i] = new JButton("" + i);
             southPanel.add(letterButtons[i]);
+            letterButtons[i].addActionListener(keyListener);
         }
-        southPanel.add(newButton);
-
     }
 
     public JButton getNewButton(){
@@ -47,5 +57,12 @@ public class WordGuessPanel {
 
     public JButton[] getLetterButtons(){
         return letterButtons;
+    }
+
+    public GameState getGameState(){
+        return gameState;
+    }
+    public void GameState setGameState (GameState state) {
+        this.gameState = state;
     }
 }
