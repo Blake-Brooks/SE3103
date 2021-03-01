@@ -5,6 +5,7 @@ import java.util.Random;
 public class WordGuess {
   private int index; 
   private ArrayList<String> wordPool = new ArrayList<String>();
+  private int healthValue = 5;
   public WordGuess(){
       wordPool.add("communication");
       wordPool.add("science");
@@ -45,5 +46,14 @@ public class WordGuess {
   }  
   public String getIndex(){
     return wordPool.get(index);
+  }
+
+  public void setGuess(int pos, String letter){
+
+  }
+
+  public void healthLevelValue(){
+    healthValue = 5; 
+
   }
 }
