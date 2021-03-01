@@ -1,6 +1,6 @@
 import javax.swing.JFrame;
-
 import view.MenuScreen;
+import javax.swing.JFrame;
 
 public class Main {
     public static void main(String[] args){

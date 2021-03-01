@@ -42,14 +42,14 @@ public class WordGuessPanel {
         JPanel southPanel = new JPanel();
         southPanel.setLayout(new GridLayout(4,7));
         southPanel.add(newButton);
-
-        WordGuessingGameEventListener keyListener = new WordGuessingGameEventListener(this);
+         WordGuessingGameEventListener keyListener = new WordGuessingGameEventListener(this);
         letterButtons = new JButton[26];
-        for(int i = 0; i < 26; i++){
+        for(char i = 'a'; i <= 'z'; i++){
             letterButtons[i] = new JButton("" + i);
             southPanel.add(letterButtons[i]);
             letterButtons[i].addActionListener(keyListener);
         }
+        cp.add(BorderLayout.SOUTH, southPanel);
     }
 
     public JButton getNewButton(){
