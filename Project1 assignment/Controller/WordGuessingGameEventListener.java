@@ -24,7 +24,7 @@ public class WordGuessingGameEventListener implements ActionListener {
             var wordGuess = new WordGuess();
             panel.setWordGuess(wordGuess);
             panel.setGameState(WordGuessPanel.GameState.PLAYING);
-            String index = wordGuess.getIndex();
+            int index = wordGuess.getIndex();
             String indexString = "" + index;
             panel.getGameKeyField().setText(indexString);
             panel.getGuessField().setText("");

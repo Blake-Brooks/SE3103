@@ -44,13 +44,13 @@ public class WordGuess {
       index =  randomIndex.nextInt(33);
       wordPool.get(index);
   }  
-  public String getIndex(){
-    return wordPool.get(index);
+  public int getIndex() {
+    return wordPool.get(index).length();
   }
 
-  public void setGuess(int pos, String letter){
-
-  }
+  //public void setGuess(int pos, String letter){
+   // wordPool.getIndex();
+ // }
 
   public void healthLevelValue(){
     healthValue = 5; 
