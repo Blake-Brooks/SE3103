@@ -5,8 +5,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import Controller.WordGuessingGameEventListener;
+import Model.WordGuess;
 
 import java.awt.Container;
 import java.awt.GridLayout;
@@ -23,6 +23,7 @@ public class WordGuessPanel {
     private JButton[] letterButtons;
     private JButton newButton = new JButton("New");
     private GameState gameState = GameState.READY;
+    private WordGuess wordGuessing;
     public WordGuessPanel(JFrame window){
         this.window = window;
     }
@@ -59,10 +60,30 @@ public class WordGuessPanel {
         return letterButtons;
     }
 
+    public JTextField getGameKeyField(){
+        return gameKeyField;
+    }
+
+    public JTextField getGuessField(){
+        return guessField;
+    }
+
+    public WordGuessCanvas getCanvas(){
+        return canvas;
+    }
+
     public GameState getGameState(){
         return gameState;
     }
-    public void GameState setGameState (GameState state) {
+    public void setGameState (GameState state) {
         this.gameState = state;
+    }
+
+    public WordGuess getWordGuess(){
+        return wordGuessing;
+    }
+
+    public void setWordGuess(WordGuess wordGuessing){
+        this.wordGuessing = wordGuessing;
     }
 }
