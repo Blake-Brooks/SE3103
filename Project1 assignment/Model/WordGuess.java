@@ -48,10 +48,6 @@ public class WordGuess {
     return wordPool.get(index).length();
   }
 
-  //public void setGuess(int pos, String letter){
-   // wordPool.getIndex();
- // }
-
   public void healthLevelValue(){
     healthValue = 5; 
 

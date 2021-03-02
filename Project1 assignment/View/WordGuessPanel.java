@@ -44,10 +44,12 @@ public class WordGuessPanel {
         southPanel.add(newButton);
          WordGuessingGameEventListener keyListener = new WordGuessingGameEventListener(this);
         letterButtons = new JButton[26];
-        for(char i = 'a'; i <= 'z'; i++){
-            letterButtons[i] = new JButton("" + i);
-            southPanel.add(letterButtons[i]);
-            letterButtons[i].addActionListener(keyListener);
+        int n = 0;
+        for(int i = 97; i <= 122; i = (char) (i+1)){
+            letterButtons[n] = new JButton("" + Character.toString(i));
+            southPanel.add(letterButtons[n]);
+            letterButtons[n].addActionListener(keyListener);
+            n++;
         }
         cp.add(BorderLayout.SOUTH, southPanel);
     }
