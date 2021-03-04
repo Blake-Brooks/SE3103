@@ -32,5 +32,6 @@ public class QuestionBank {
             c2.addChoice("for");
             c2.addChoice("instanceof");
             c2.addChoice("String");
+            database.add(c2);
     }
 }
