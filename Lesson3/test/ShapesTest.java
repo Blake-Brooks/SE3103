@@ -13,6 +13,9 @@ public class ShapesTest {
         Circle c1 = new Circle(f1, 1, Color.white, 2);
         assert isEqual(c1.getX(), 1.05F);
         assert isEqual(c1.getArea(), (float) (2*2*Math.PI));
+        Rectangle r1 = new Rectangle(10, 12.5F, Color.red, 5, 7);
+        assert isEqual(r1.getArea(), (float) (5*7));
+        assert isEqual(12.5F, r1.getY());
         ArrayList<Shape> shapes = new ArrayList<>();
         shapes.add(new Circle(0, 0, Color.white, 1));
         shapes.add(new Circle(1, 1, Color.white, 2));

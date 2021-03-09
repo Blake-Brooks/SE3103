@@ -32,5 +32,13 @@ public class MenuScreen {
             window.pack();
             window.revalidate();
         });
+
+        shapeButton.addActionListener(event -> {
+            window.getContentPane().removeAll();
+            var panel = new ShapePanel(window);
+            panel.init();
+            window.pack();
+            window.revalidate();
+        });
     }
 }
