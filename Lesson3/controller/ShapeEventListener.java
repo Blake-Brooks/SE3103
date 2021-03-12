@@ -4,8 +4,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 import java.awt.Color;
-
-import javax.crypto.Cipher;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
