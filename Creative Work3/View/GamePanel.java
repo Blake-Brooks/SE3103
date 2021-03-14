@@ -8,7 +8,8 @@ import javax.swing.JButton;
 public class GamePanel {
     private JFrame window;
     private Game gameCanvas; 
-    private JButton fireBtton;
+    private JButton fireBtton = new JButton("Fire");
+    private JButton startButton = new JButton("Start");
     public GamePanel(JFrame window){
         this.window = window; 
     }
@@ -16,6 +17,7 @@ public class GamePanel {
     public void init(){
         Container cp = window.getContentPane();
         JPanel southPanel = new JPanel();
+        southPanel.add(startButton);
         southPanel.add(fireBtton);
         cp.add(BorderLayout.SOUTH, southPanel);
         gameCanvas = new Game(this);

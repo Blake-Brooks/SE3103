@@ -11,6 +11,7 @@ public class Game extends JPanel{
         this.panel = panel;
         setPreferredSize(new Dimension(500, 500));
         setBackground(Color.black);
+        
     }
 
     @Override 
