@@ -15,6 +15,7 @@ public class GamePanel {
     }
 
     public void init(){
+        fireBtton.setEnabled(false);
         Container cp = window.getContentPane();
         JPanel southPanel = new JPanel();
         southPanel.add(startButton);
@@ -22,6 +23,10 @@ public class GamePanel {
         cp.add(BorderLayout.SOUTH, southPanel);
         gameCanvas = new Game(this);
         cp.add(BorderLayout.CENTER, gameCanvas);
+    }
+
+    public JButton getStartButton(){
+        return startButton;
     }
 
     public JButton getFireButton(){
