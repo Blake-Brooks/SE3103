@@ -1,17 +1,10 @@
 package Model;
+import java.awt.Color;
 
 public abstract class Spaceship {
-    private float x;
-    private float y;
-    public Spaceship(){
+    //Rectangle rectangle = new Rectangle(50, 0, Color.blue, 50, 100);
 
-    }
-
-    public Spaceship(float x, float y){
-        this.x = x;
-        this.y = y;
-    }
-
+   
     public abstract void fireWeapon();
     public abstract void thrusters();
 }
