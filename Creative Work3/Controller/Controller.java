@@ -4,8 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
+import Model.Rectangle;
+
+import java.awt.Color;
+
+
 public class Controller implements ActionListener{
     private GamePanel gammingPanel;
+
     public Controller(GamePanel gammingPanel){
         this.gammingPanel = gammingPanel;
     }
@@ -15,7 +21,7 @@ public class Controller implements ActionListener{
         if(button == gammingPanel.getStartButton()){
             gammingPanel.getFireButton().setEnabled(true);      
             gammingPanel.setGameState(GamePanel.GameState.PLAYING);
-            
+            Rectangle playerObject = gammingPanel.getGameCanvas().getRect();
         } else if(button == gammingPanel.getFireButton()){
 
         }

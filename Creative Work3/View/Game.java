@@ -3,12 +3,16 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import Model.Rectangle;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Font;
 
 public class Game extends JPanel{
     private GamePanel panel;
+    private Rectangle rect = new Rectangle(0, 0, Color.blue, 50, 50);
     public Game(GamePanel panel){
         this.panel = panel;
         setPreferredSize(new Dimension(500, 500));
@@ -34,5 +38,9 @@ public class Game extends JPanel{
                 g2.drawString("Game over", 150, 160);
             }
         }
+    }
+
+    public Rectangle getRect(){
+        return rect;
     }
 }
