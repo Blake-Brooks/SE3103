@@ -22,6 +22,7 @@ public class Controller implements ActionListener{
             gammingPanel.getFireButton().setEnabled(true);      
             gammingPanel.setGameState(GamePanel.GameState.PLAYING);
             Rectangle playerObject = gammingPanel.getGameCanvas().getRect();
+            gammingPanel.getGameCanvas().repaint();
         } else if(button == gammingPanel.getFireButton()){
 
         }

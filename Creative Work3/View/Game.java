@@ -27,7 +27,7 @@ public class Game extends JPanel{
         
         Graphics2D g2 = (Graphics2D) g;
         GamePanel.GameState state = panel.getGameState();
-        if(state==GamePanel.GameState.PLAYING){
+        if(state==GamePanel.GameState.READY){
             g2.setColor(Color.blue);
             g2.setFont(new Font("Times New Roman", Font.BOLD, 30));
             g2.drawString("Click Start to Begin", 70, 150);
@@ -37,10 +37,15 @@ public class Game extends JPanel{
                 g2.setFont(new Font("Times New Roman", Font.BOLD, 30));
                 g2.drawString("Game over", 150, 160);
             }
+            getRect();
+            
         }
     }
 
     public Rectangle getRect(){
         return rect;
+    }
+
+    public void repaint(Rectangle playerObject) {
     }
 }
