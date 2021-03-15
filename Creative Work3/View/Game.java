@@ -33,7 +33,6 @@ public class Game extends JPanel{
                 g2.setFont(new Font("Times New Roman", Font.BOLD, 30));
                 g2.drawString("Game over", 150, 160);
             }
-            g2.drawRect(x, y, width, height);
         }
     }
 }
