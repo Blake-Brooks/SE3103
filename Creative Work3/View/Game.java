@@ -3,6 +3,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import Model.EnemyObject;
 import Model.Rectangle;
 
 import java.awt.Graphics;
@@ -12,6 +14,7 @@ import java.awt.Font;
 public class Game extends JPanel{
     private GamePanel panel;
     private Rectangle rect = new Rectangle(400, 400, Color.blue, 40, 100);
+    private EnemyObject circle = new EnemyObject(200, 200, Color.red, 100);
     public Game(GamePanel panel){
         this.panel = panel;
         setPreferredSize(new Dimension(500, 500));
@@ -39,11 +42,17 @@ public class Game extends JPanel{
             //getRect();
             panel.getGameCanvas().getRect().render(g2);
             panel.getGameCanvas().repaint();
+            panel.getGameCanvas().getCircle().render(g2);
+            panel.getGameCanvas().repaint();
         }
     }
 
     public Rectangle getRect(){
         return rect;
+    }
+
+    public EnemyObject getCircle(){
+        return circle;
     }
 
     public void repaint(Rectangle playerObject) {
