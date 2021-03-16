@@ -13,7 +13,7 @@ import java.awt.Font;
 
 public class Game extends JPanel{
     private GamePanel panel;
-    private Rectangle rect = new Rectangle(100, 100, Color.blue, 50, 50);
+    private Rectangle rect = new Rectangle(500, 500, Color.blue, 50, 50);
     private EnemyObject circ = new EnemyObject(0, 0, Color.red, 5);
     public Game(GamePanel panel){
         this.panel = panel;
