@@ -18,15 +18,10 @@ public class Controller implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton button = (JButton) e.getSource();
-        if(button == gammingPanel.getStartButton()){
-            gammingPanel.getFireButton().setEnabled(true);      
+        if(button == gammingPanel.getStartButton()){     
             gammingPanel.setGameState(GamePanel.GameState.PLAYING);
             Rectangle playerObject = gammingPanel.getGameCanvas().getRect();
             gammingPanel.getGameCanvas().repaint();
-        } else if(button == gammingPanel.getFireButton()){
-
-        }
-
-    
+        } 
     }
 }

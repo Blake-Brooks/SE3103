@@ -16,7 +16,6 @@ public class GamePanel {
 
     private JFrame window;
     private Game gameCanvas; 
-    private JButton fireButton = new JButton("Fire");
     private JButton startButton = new JButton("Start");
     private GameState gameState = GameState.READY;
     public GamePanel(JFrame window){
@@ -24,25 +23,18 @@ public class GamePanel {
     }
 
     public void init(){
-        fireButton.setEnabled(false);
         Container cp = window.getContentPane();
         JPanel southPanel = new JPanel();
         southPanel.add(startButton);
-        southPanel.add(fireButton);
         cp.add(BorderLayout.SOUTH, southPanel);
         gameCanvas = new Game(this);
         cp.add(BorderLayout.CENTER, gameCanvas);
         Controller controllerListener = new Controller(this);
         startButton.addActionListener(controllerListener);
-        fireButton.addActionListener(controllerListener);
     }
 
     public JButton getStartButton(){
         return startButton;
-    }
-
-    public JButton getFireButton(){
-        return fireButton;
     }
 
     public JFrame getWindow(){
