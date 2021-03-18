@@ -18,7 +18,6 @@ public class Dog extends Animal {
 
     @Override
     public String getSound() {
-        // TODO Auto-generated method stub
         return "[Dog] woo ~~~~~~ fffff";
     }
 }

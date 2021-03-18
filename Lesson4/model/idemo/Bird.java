@@ -18,7 +18,6 @@ public class Bird extends Animal {
 
     @Override
     public String getSound() {
-        // TODO Auto-generated method stub
         return "[Bird] chirrrrrrr r ^^^^ ing";
     }
 }
