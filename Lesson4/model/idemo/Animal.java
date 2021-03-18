@@ -1,6 +1,6 @@
 package model.idemo;
 
-public abstract class Animal {
+public abstract class Animal implements ISound {
     private int x;
     private int y;
     private String name;

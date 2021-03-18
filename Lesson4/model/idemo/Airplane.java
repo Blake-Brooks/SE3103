@@ -15,4 +15,9 @@ public class Airplane extends Vehicle {
     public String toString(){
         return "[Airplane] " + super.toString() + " capacity = " + capacity;
     }
+
+    @Override
+    public String getSound() {
+        return "[Airplane] Sonic B ooooooooooo ~~~m";
+    }
 }

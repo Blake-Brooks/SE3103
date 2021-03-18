@@ -15,4 +15,10 @@ public class Bird extends Animal {
     public String toString(){
         return "[Bird] " + super.toString() + ", wingSpan = " + wingSpan;
     }
+
+    @Override
+    public String getSound() {
+        // TODO Auto-generated method stub
+        return "[Bird] chirrrrrrr r ^^^^ ing";
+    }
 }
