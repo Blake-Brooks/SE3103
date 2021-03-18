@@ -25,8 +25,8 @@ public class MenuScreen {
         cp.add(BorderLayout.CENTER, panel);
         idemoButton.addActionListener(event -> {
             window.getContentPane().removeAll();
-            var panel = newIDemoPanel(window);
-            panel.init();
+            var menu = new IDemoPanel(window);
+            menu.init();
             window.pack();
             window.setVisible(true);
         });
