@@ -1,10 +1,12 @@
 package model.idemo;
+import java.awt.image.BufferedImage;
 
-public abstract class Animal implements ISound {
+public abstract class Animal implements ISound, IRender {
     private int x;
     private int y;
     private String name;
     private int age;
+    private BufferedImage image;
     public Animal(int x, int y, String name, int age){
         this.x = x;
         this.y = y;
@@ -26,6 +28,14 @@ public abstract class Animal implements ISound {
 
     public int getAge(){
         return age;
+    }
+
+    public BufferedImage getImage(){
+        return image;
+    }
+
+    public void setImage(BufferedImage image){
+        this.image = image;
     }
 
     @Override

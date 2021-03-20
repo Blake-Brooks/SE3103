@@ -1,5 +1,7 @@
 package model.idemo;
 
+import java.awt.Graphics2D;
+
 public class Dog extends Animal {
     private String color;
     public Dog (int x, int y, String name, int age, String color){
@@ -19,5 +21,11 @@ public class Dog extends Animal {
     @Override
     public String getSound() {
         return "[Dog] woo ~~~~~~ fffff";
+    }
+
+    @Override
+    public void render(Graphics2D g2) {
+        // TODO Auto-generated method stub
+        
     }
 }
