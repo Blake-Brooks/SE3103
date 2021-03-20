@@ -25,7 +25,6 @@ public class Bird extends Animal {
 
     @Override
     public void render(Graphics2D g2) {
-        // TODO Auto-generated method stub
-        
+        g2.drawImage(getImage(), null, getX(),getY());
     }
 }

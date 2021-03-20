@@ -1,5 +1,7 @@
 package model.idemo;
 
+import java.awt.Graphics2D;
+
 public class Car extends Vehicle {
     private String type;
     public Car (int x, int y, String make, double price, String type){
@@ -18,5 +20,10 @@ public class Car extends Vehicle {
     @Override
     public String getSound() {
         return "[Car] Vrrrr ~~~~~~ oooooooooo m";
+    }
+
+    @Override
+    public void render(Graphics2D g2) {
+        g2.drawImage(getImage(), null, getX(), getY());
     }
 }
