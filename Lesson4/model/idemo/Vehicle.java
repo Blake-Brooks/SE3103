@@ -51,4 +51,10 @@ public Rectangle getBoundingBox(){
     return new Rectangle(x, y, image.getWidth(), image.getHeight());
 }
 
+@Override
+public void translate(int dx, int dy){
+    x += dx;
+    y += dy;
+}
+
 }
