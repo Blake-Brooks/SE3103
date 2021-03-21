@@ -11,6 +11,7 @@ import model.idemo.Airplane;
 import model.idemo.Car;
 import model.idemo.Bird;
 import model.idemo.Dog;
+import controller.IDemoEventListener;
 
 public class IDemoPanel {
     private JFrame window;
@@ -29,7 +30,8 @@ public class IDemoPanel {
         cp.add(BorderLayout.CENTER, canvas);
         cp.add(BorderLayout.SOUTH, southPanel);
         populatePictures();
-        IDemoEventListener listener = new IDemoEventListener();
+        IDemoEventListener listener = new IDemoEventListener(this);
+        canvas.addMouseListener(listener);
     }
 
     private void populatePictures(){
@@ -46,5 +48,9 @@ public class IDemoPanel {
         var v4 = new Dog(50, 150, "Bulldog", 3, "white");
         pics.add(v4);
         v4.setImage(ImageStore.dog);
+    }
+
+    public IDemoCanvas getCanvas(){
+        return canvas;
     }
 }
