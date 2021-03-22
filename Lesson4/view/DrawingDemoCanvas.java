@@ -25,7 +25,7 @@ public class DrawingDemoCanvas extends JPanel{
 
     @Override
     public void paintComponent(Graphics g){
-        super.paint(g);
+        super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         if(singleStepIndex >= 0){
             for(int i = 0; i < singleStepIndex; i++){
