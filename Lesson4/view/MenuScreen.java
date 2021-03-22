@@ -26,8 +26,8 @@ public class MenuScreen {
 
         idemoButton.addActionListener(event -> {
             window.getContentPane().removeAll();
-            var menu = new IDemoPanel(window);
-            menu.init();
+            var menu2 = new IDemoPanel(window);
+            menu2.init();
             window.pack();
             window.setVisible(true);
         });
