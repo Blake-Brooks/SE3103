@@ -1,16 +1,12 @@
 package controller;
 import java.awt.event.MouseListener;
 import java.util.Collections;
-import java.util.Comparator;
-
 import javax.swing.JFrame;
-
 import model.Shapes.Circle;
 import model.Shapes.IShapeDraw;
 import model.Shapes.Rectangle;
 import model.Shapes.Shape;
 import model.Shapes.Triangle;
-
 import java.awt.Color;
 import view.DrawingDemoPanel;
 import view.MenuScreen;
