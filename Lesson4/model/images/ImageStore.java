@@ -1,4 +1,4 @@
-package model.idemo.images;
+package model.images;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -12,10 +12,10 @@ public class ImageStore {
     public static BufferedImage dog;
 
     static{
-        airplane = readImage("model/idemo/images/Airplane.jpg", 80, 60);
-        car = readImage("model/idemo/images/car.jpg", 70, 50);
-        bird = readImage("model/idemo/images/Bird.jpg", 70, 50);
-        dog = readImage("model/idemo/images/dog.jpg", 70, 50);
+        airplane = readImage("model/images/Airplane.jpg", 80, 60);
+        car = readImage("model/images/car.jpg", 70, 50);
+        bird = readImage("model/images/Bird.jpg", 70, 50);
+        dog = readImage("model/images/dog.jpg", 70, 50);
     }
 
     public static BufferedImage readImage(String path, int width, int height){
