@@ -23,12 +23,21 @@ public class MenuScreen {
         panel.add(idemoButton);
         panel.add(drawingButton);
         cp.add(BorderLayout.CENTER, panel);
+
         idemoButton.addActionListener(event -> {
             window.getContentPane().removeAll();
             var menu = new IDemoPanel(window);
             menu.init();
             window.pack();
             window.setVisible(true);
+        });
+
+        drawingButton.addActionListener(event -> {
+            window.getContentPane().removeAll();
+            var menu = new DrawingDemoPanel(window);
+            menu.init();
+            window.pack();
+            window.revalidate();
         });
     }
 }
