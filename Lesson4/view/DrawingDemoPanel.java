@@ -73,7 +73,6 @@ public class DrawingDemoPanel {
         colorGroup.add(whiteColor);
         colorGroup.add(yellowButton);
         colorGroup.add(redButton);
-        colorGroup.add(filledBox);
         whiteColor.setSelected(true);
 
         sizePanel.setBorder(BorderFactory.createTitledBorder("Size"));
