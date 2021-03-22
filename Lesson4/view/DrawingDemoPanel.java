@@ -52,6 +52,7 @@ public class DrawingDemoPanel {
         southPanel.add(colorPanel);
         southPanel.add(sizePanel);
         southPanel.add(buttonPanel);
+        cp.add(BorderLayout.SOUTH, southPanel);
 
         shapePanel.setBorder(BorderFactory.createTitledBorder("Shape"));
         shapePanel.add(circleButton);
@@ -109,7 +110,6 @@ public class DrawingDemoPanel {
         sortXButton.addActionListener(listener);
         sortYButton.addActionListener(listener);
 
-        cp.add(BorderLayout.SOUTH, southPanel);
     }
 
     public JFrame getWindow(){
