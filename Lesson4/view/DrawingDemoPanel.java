@@ -104,6 +104,8 @@ public class DrawingDemoPanel {
         canvas.addMouseListener(listener);
         clearButton.addActionListener(listener);
         exitButton.addActionListener(listener);
+        showOrderButton.addActionListener(listener);
+        showAllButton.addActionListener(listener);
 
         cp.add(BorderLayout.SOUTH, southPanel);
     }
@@ -164,8 +166,8 @@ public class DrawingDemoPanel {
         return showAllButton;
     }
 
-    public JButton getSortOrderButton(){
-        return showAllButton;
+    public JButton getShowOrderButton(){
+        return showOrderButton;
     }
 
     public JButton getClearButton(){

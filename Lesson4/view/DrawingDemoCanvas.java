@@ -13,7 +13,9 @@ import model.Shapes.Triangle;
 
 public class DrawingDemoCanvas extends JPanel{
     private DrawingDemoPanel panel;
-    ArrayList<IShapeDraw> shapes = new ArrayList<>();
+    private ArrayList<IShapeDraw> shapes = new ArrayList<>();
+    private int singleStepIndex = -1;
+
     public DrawingDemoCanvas(DrawingDemoPanel panel){
         this.panel = panel;
         setBackground(Color.black);
@@ -25,9 +27,28 @@ public class DrawingDemoCanvas extends JPanel{
     public void paintComponent(Graphics g){
         super.paint(g);
         Graphics2D g2 = (Graphics2D) g;
+        if(singleStepIndex >= 0){
+            for(int i = 0; i < singleStepIndex; i++){
+                if(singleStepIndex < shapes.size())
+                shapes.get(i).render(g2);
+            }
+        } else{
         for(var s: shapes){
             s.render(g2);
         }
+     }
+    }
+
+    public void incrementSingleStepIndex(){
+        if(shapes.size() == 0) return;
+        ++singleStepIndex;
+        if(singleStepIndex == shapes.size()){
+            singleStepIndex = 0;
+        }
+    }
+
+    public void setSingleStepIndex(int singleStepIndex){
+        this.singleStepIndex = singleStepIndex;
     }
 
     public ArrayList<IShapeDraw> getShapes(){
