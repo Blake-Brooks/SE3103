@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import controller.ShapeDemoListener;
+
 public class DrawingDemoPanel {
     private JFrame window;
     private DrawingDemoCanvas canvas;
@@ -98,9 +100,16 @@ public class DrawingDemoPanel {
         actionsGroup.add(clearButton);
         actionsGroup.add(exitButton);
 
-        ShapeDemoListener listener = new ShapeDemoListener();
+        ShapeDemoListener listener = new ShapeDemoListener(this);
+        canvas.addMouseListener(listener);
+        clearButton.addActionListener(listener);
+        exitButton.addActionListener(listener);
 
         cp.add(BorderLayout.SOUTH, southPanel);
+    }
+
+    public JFrame getWindow(){
+        return window;
     }
 
     public JRadioButton getCircleRadioButton(){
@@ -165,5 +174,9 @@ public class DrawingDemoPanel {
 
     public JButton getExitButton(){
         return exitButton;
+    }
+
+    public DrawingDemoCanvas getCanvas(){
+        return canvas;
     }
 }

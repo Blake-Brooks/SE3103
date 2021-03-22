@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import model.Shapes.Circle;
 import model.Shapes.IShapeDraw;
 import model.Shapes.Rectangle;
+import model.Shapes.Shape;
 import model.Shapes.Triangle;
 
 public class DrawingDemoCanvas extends JPanel{
@@ -29,9 +30,7 @@ public class DrawingDemoCanvas extends JPanel{
         }
     }
 
-    private void testRendering(){
-        shapes.add(new Circle(50, 50, 50, Color.yellow, true));
-        shapes.add(new Rectangle(200, 200, 100, 100, Color.white, true));
-        shapes.add(new Triangle(100, 100, 50, Color.red, true));
+    public ArrayList<IShapeDraw> getShapes(){
+        return shapes;
     }
 }
