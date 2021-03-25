@@ -1,19 +1,27 @@
 package model;
+import java.awt.Color;
 
-public class Shape {
-    private int x;
-    private int y;
-    public Shape(int x, int y){
+public abstract class Shape {
+    private float x;
+    private float y;
+    private Color color; 
+
+    public Shape(float x, float y, Color color){
         this.x = x;
         this.y = y;
+        this.color = color;
     }
 
-    public int getX(){
+    public float getX(){
         return x;
     }
 
-    public int getY(){
+    public float getY(){
         return y;
+    }
+
+    public Color getColor(){
+        return color; 
     }
 
     public void setLocation(int x, int y){

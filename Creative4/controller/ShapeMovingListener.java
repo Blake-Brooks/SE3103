@@ -2,9 +2,10 @@ package controller;
 import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent; 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class ShapeMovingListener implements MouseListener, ActionListener{
+public class ShapeMovingListener implements ActionListener, KeyListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -13,33 +14,20 @@ public class ShapeMovingListener implements MouseListener, ActionListener{
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void keyTyped(KeyEvent e) {
         // TODO Auto-generated method stub
         
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
+    public void keyPressed(KeyEvent e) {
         // TODO Auto-generated method stub
         
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
+    public void keyReleased(KeyEvent e) {
         // TODO Auto-generated method stub
         
     }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        // TODO Auto-generated method stub
-        
-    }
-    
 }
