@@ -10,15 +10,18 @@ public class ShapeMovingPanel {
     private JFrame window;
     private JButton clearButton = new JButton("clear");
     private JCheckBox filledBox = new JCheckBox("Filled");
+    private MovingShapeCanvas canvas; 
     public ShapeMovingPanel(JFrame window){
         this.window = window;
     }
 
     public void init(){
-        JPanel southPanel = new JPanel();
         Container cp = window.getContentPane();
+        canvas = new MovingShapeCanvas(this);
+        JPanel southPanel = new JPanel();
         southPanel.add(clearButton);
         southPanel.add(filledBox);
+        cp.add(BorderLayout.CENTER, canvas);
         cp.add(BorderLayout.SOUTH, southPanel);
     }
 }
