@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import java.awt.Color;
 import model.Circle;
 import model.Shape;
+import model.ShapeDraw;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 public class MovingShapeCanvas extends JPanel {
     private ShapeMovingPanel panel;
-    private ArrayList<Shape> shapeToBeMoved = new ArrayList<>();
+    private ArrayList<ShapeDraw> shapeToBeMoved = new ArrayList<>();
 
     public MovingShapeCanvas(ShapeMovingPanel panel){
         this.panel = panel;
@@ -23,5 +25,13 @@ public class MovingShapeCanvas extends JPanel {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        for(var s: shapeToBeMoved){
+            s.render(g2);
+        }
+    }
+
+    public ArrayList<ShapeDraw> getShapeToBeMoved(){
+        return shapeToBeMoved;
     }
 }
