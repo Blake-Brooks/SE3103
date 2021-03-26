@@ -14,20 +14,27 @@ public class ShapeMovingListener implements ActionListener, KeyListener{
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub
-        
-    }
+    public void keyTyped(KeyEvent e) {}
 
     @Override
     public void keyPressed(KeyEvent e) {
-        // TODO Auto-generated method stub
-        
+        var key = e.getKeyCode();
+        switch(key){
+            case KeyEvent.VK_LEFT:
+
+            break;
+            case KeyEvent.VK_RIGHT:
+
+            break;
+            case KeyEvent.VK_UP:
+
+            break;
+            case KeyEvent.VK_DOWN:
+
+            break;
+        }
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-        // TODO Auto-generated method stub
-        
-    }
+    public void keyReleased(KeyEvent e) {}
 }

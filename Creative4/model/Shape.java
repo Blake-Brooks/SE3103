@@ -2,21 +2,21 @@ package model;
 import java.awt.Color;
 
 public abstract class Shape {
-    private float x;
-    private float y;
+    private int x;
+    private int  y;
     private Color color; 
 
-    public Shape(float x, float y, Color color){
+    public Shape(int x, int y, Color color){
         this.x = x;
         this.y = y;
         this.color = color;
     }
 
-    public float getX(){
+    public int getX (){
         return x;
     }
 
-    public float getY(){
+    public int  getY(){
         return y;
     }
 

@@ -3,10 +3,12 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class Circle extends Shape implements ShapeDraw{
-    private float radius; 
-    public Circle(float x, float y, Color color, float radius){
+    private int radius; 
+    private boolean filled;
+    public Circle(int x, int y, Color color, int radius, boolean filled){
         super(x, y, color);
         this.radius = radius;
+        this.filled = filled;
     }
 
     public float getRadius(){
@@ -15,7 +17,11 @@ public class Circle extends Shape implements ShapeDraw{
 
     @Override
     public void render(Graphics2D g2) {
-        // TODO Auto-generated method stub
-        
+        g2.getColor();
+        if(filled){
+            g2.fillOval(getX() - radius, getY() - radius, radius * 2, radius * 2);
+        } else{
+            g2.drawOval(getX(), getY(), radius * 2, radius * 2);
+        }
     }
 }
