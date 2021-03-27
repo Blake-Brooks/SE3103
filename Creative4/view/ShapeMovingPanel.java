@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 public class ShapeMovingPanel {
     private JFrame window;
-    private JButton clearButton = new JButton("clear");
+    private JButton resetButton = new JButton("Reset");
     private JCheckBox filledBox = new JCheckBox("Filled");
     private MovingShapeCanvas canvas; 
     public ShapeMovingPanel(JFrame window){
@@ -19,9 +19,17 @@ public class ShapeMovingPanel {
         Container cp = window.getContentPane();
         canvas = new MovingShapeCanvas(this);
         JPanel southPanel = new JPanel();
-        southPanel.add(clearButton);
+        southPanel.add(resetButton);
         southPanel.add(filledBox);
         cp.add(BorderLayout.CENTER, canvas);
         cp.add(BorderLayout.SOUTH, southPanel);
+    }
+
+    public JButton getResetButton(){
+        return resetButton;
+    }
+
+    public MovingShapeCanvas getCanvas(){
+        return canvas;
     }
 }
