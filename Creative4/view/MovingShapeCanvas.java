@@ -7,11 +7,11 @@ import java.awt.Color;
 import model.Circle;
 import model.Shape;
 import model.ShapeDraw;
-
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 public class MovingShapeCanvas extends JPanel {
+    private int index = -1;
     private ShapeMovingPanel panel;
     private ArrayList<ShapeDraw> shapeToBeMoved = new ArrayList<>();
 
@@ -33,5 +33,13 @@ public class MovingShapeCanvas extends JPanel {
 
     public ArrayList<ShapeDraw> getShapeToBeMoved(){
         return shapeToBeMoved;
+    }
+
+    public int getIndex(){
+        return index;
+    }
+
+    public void setIndex(int index){
+        this.index = index;
     }
 }
