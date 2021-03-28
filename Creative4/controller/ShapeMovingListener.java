@@ -13,6 +13,11 @@ import java.awt.event.KeyListener;
 public class ShapeMovingListener implements ActionListener, KeyListener{
     public static final int movingIt = 5;
     private ShapeMovingPanel panel;
+
+    public ShapeMovingListener(ShapeMovingPanel panel){
+        this.panel = panel;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub

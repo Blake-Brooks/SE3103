@@ -6,6 +6,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import controller.ShapeMovingListener;
+
 public class ShapeMovingPanel {
     private JFrame window;
     private JButton resetButton = new JButton("Reset");
@@ -23,6 +25,8 @@ public class ShapeMovingPanel {
         southPanel.add(filledBox);
         cp.add(BorderLayout.CENTER, canvas);
         cp.add(BorderLayout.SOUTH, southPanel);
+        ShapeMovingListener listener = new ShapeMovingListener(this);
+        canvas.addKeyListener(listener);
     }
 
     public JButton getResetButton(){
