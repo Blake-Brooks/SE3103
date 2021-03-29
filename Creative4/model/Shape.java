@@ -2,9 +2,9 @@ package model;
 import java.awt.Color;
 
 public abstract class Shape {
-    private int x;
-    private int  y;
-    private Color color; 
+    protected int x;
+    protected int  y;
+    protected Color color; 
 
     public Shape(int x, int y, Color color){
         this.x = x;
@@ -14,6 +14,14 @@ public abstract class Shape {
 
     public int getX (){
         return x;
+    }
+
+    public void setX(int x){
+        this.x = x;
+    }
+
+    public void setY(int y){
+        this.y = y;
     }
 
     public int  getY(){

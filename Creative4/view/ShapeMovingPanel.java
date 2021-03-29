@@ -29,6 +29,10 @@ public class ShapeMovingPanel {
         filledBox.setFocusable(false);
     }
 
+    public JCheckBox getFIlled(){
+        return filledBox;
+    }
+
     public MovingShapeCanvas getCanvas(){
         return canvas;
     }

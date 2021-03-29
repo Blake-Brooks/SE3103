@@ -11,7 +11,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 public class MovingShapeCanvas extends JPanel {
-    private int index = -1;
+    private int index = 0;
     private ShapeMovingPanel panel;
     private ArrayList<ShapeDraw> shapeToBeMoved = new ArrayList<>();
 

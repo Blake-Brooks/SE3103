@@ -3,8 +3,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class Circle extends Shape implements ShapeDraw{
-    private int x;
-    private int y;
     private int radius; 
     private boolean filled;
     public Circle(int x, int y, Color color, int radius, boolean filled){
@@ -19,7 +17,7 @@ public class Circle extends Shape implements ShapeDraw{
 
     @Override
     public void render(Graphics2D g2) {
-        g2.getColor();
+        g2.setColor(color);
         if(filled){
             g2.fillOval(getX() - radius, getY() - radius, radius * 2, radius * 2);
         } else{

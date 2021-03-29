@@ -1,4 +1,5 @@
 package controller;
+import model.Shape;
 import model.ShapeDraw;
 import view.ShapeMovingPanel;
 import java.awt.event.KeyEvent;
@@ -23,6 +24,7 @@ public class ShapeMovingListener implements KeyListener{
         switch(key){
             case KeyEvent.VK_LEFT:
             ShapeMoving.moveIt(-movingIt, 0);
+            boolean filled = getFIlled();
             break;
             case KeyEvent.VK_RIGHT:
             ShapeMoving.moveIt(movingIt, 0);
@@ -35,6 +37,10 @@ public class ShapeMovingListener implements KeyListener{
             break;
         }
         panel.getCanvas().repaint();
+    }
+
+    private boolean getFIlled(){
+        return panel.getFIlled().isSelected();
     }
 
     @Override
