@@ -26,5 +26,9 @@ public class MyCanvas extends JPanel {
             e.render(g2);
         }
     }
+
+    public ArrayList<GameElement> getGameElements(){
+        return gameElements;
+    }
     
 }

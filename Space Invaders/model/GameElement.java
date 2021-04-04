@@ -3,7 +3,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 public abstract class GameElement {
-    private int x; 
+    public int x; 
     public int y;
     public Color color;
     public boolean filled;
@@ -22,7 +22,7 @@ public abstract class GameElement {
         this(0, 0, Color.white, false, 0, 0);
     }
 
-    public GameElement(int x, int y, Color color, int width, int height){
+    public GameElement(int x, int y, int width, int height){
         this(x, y, Color.white, false, width, height);
     }
 
