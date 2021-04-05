@@ -66,4 +66,8 @@ public class GameBoard {
     public TimerListener getTimerListener(){
         return timerListener;
     }
+
+    public Shooter getShooter(){
+        return shooter;
+    }
 }

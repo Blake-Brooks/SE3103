@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 public class Shooter extends GameElement{
+    public static final int UNIT_MOVE = 10;
     private ArrayList<GameElement> components = new ArrayList<>();
 
     public Shooter(int x, int y){
@@ -18,6 +19,20 @@ public class Shooter extends GameElement{
         components.add(s2);
         components.add(s3);
         components.add(s4);
+    }
+
+    public void moveRight(){
+        super.x -= UNIT_MOVE;
+        for(var c: components){
+            c.x -= UNIT_MOVE;
+        }
+    }
+
+    public void moveLeft() {
+        super.x += UNIT_MOVE;
+        for(var c: components){
+            c.x += UNIT_MOVE;
+        }
     }
 
     @Override
