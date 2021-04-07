@@ -7,7 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import controller.ButtonClickListener;
 import controller.TimerListener;
+import model.Snake;
 
 
 
@@ -24,6 +27,7 @@ public class GameBoard {
     private JButton exitButton = new JButton("Exit");
     private JLabel scoreDisplay = new JLabel(); 
     private Timer timer; 
+    private Snake snake = new Snake();
     public GameBoard(JFrame window){
         this.window = window;
     }
@@ -47,6 +51,9 @@ public class GameBoard {
         t1.color = Color.yellow;
         canvas.getFigures().add(t1);
 
+        ButtonClickListener buttonListener = new ButtonClickListener(this);
+        startButton.addActionListener(buttonListener); 
+
         timer = new Timer(DELAY, new TimerListener(this));
         timer.start();
     }
@@ -65,5 +72,9 @@ public class GameBoard {
 
     public MyCanvas getCanvas(){
         return canvas;
+    }
+
+    public Snake getSnake(){
+        return snake;
     }
 }
