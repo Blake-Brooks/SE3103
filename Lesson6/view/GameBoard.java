@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controller.ButtonClickListener;
+import controller.KeyController;
 import controller.TimerListener;
 import model.Snake;
 
@@ -53,6 +54,9 @@ public class GameBoard {
 
         ButtonClickListener buttonListener = new ButtonClickListener(this);
         startButton.addActionListener(buttonListener); 
+
+        KeyController keyController = new KeyController(this);
+        canvas.addKeyListener(keyController);
 
         timer = new Timer(DELAY, new TimerListener(this));
         timer.start();
