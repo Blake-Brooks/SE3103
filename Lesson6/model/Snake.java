@@ -20,7 +20,7 @@ public class Snake extends  GameElement{
     public ArrayList<GameElement> composite = new ArrayList<>();
     private final int INIT_XLOC = GameBoard.CELL_SIZE * 7;
     private final int INIT_YLOC = GameBoard.CELL_SIZE * 3;
-    private final int INIT_BODY_SIZE = 7;
+    private final int INIT_BODY_SIZE = 3;
     public Direction direction = Direction.RIGHT;
     private SnakeMoveStrategy moveStrategy;
     private SnakeRenderStrategy renderStrategy;

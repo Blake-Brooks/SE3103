@@ -16,6 +16,7 @@ public class ButtonClickListener implements ActionListener{
             gameBoard.getCanvas().getFigures().clear();
             gameBoard.getSnake().init();
             gameBoard.getCanvas().getFigures().add(gameBoard.getSnake());
+            gameBoard.createFood();
         }
     }
     
