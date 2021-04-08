@@ -5,7 +5,10 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 import model.StrategyPattern.SnakeMoveAliveStrategy;
+import model.StrategyPattern.SnakeMoveDeadStrategy;
 import model.StrategyPattern.SnakeMoveStrategy;
+import model.StrategyPattern.SnakeRenderAliveStrategy;
+import model.StrategyPattern.SnakeRenderStrategy;
 import view.GameBoard;
 
 public class Snake extends  GameElement{
@@ -17,9 +20,10 @@ public class Snake extends  GameElement{
     public ArrayList<GameElement> composite = new ArrayList<>();
     private final int INIT_XLOC = GameBoard.CELL_SIZE * 7;
     private final int INIT_YLOC = GameBoard.CELL_SIZE * 3;
-    private final int INIT_BODY_SIZE = 3;
+    private final int INIT_BODY_SIZE = 7;
     public Direction direction = Direction.RIGHT;
     private SnakeMoveStrategy moveStrategy;
+    private SnakeRenderStrategy renderStrategy;
 
     public void init(){
         direction = Direction.RIGHT;
@@ -39,6 +43,8 @@ public class Snake extends  GameElement{
         }
 
         moveStrategy = new SnakeMoveAliveStrategy(this);
+        //moveStrategy = new SnakeMoveDeadStrategy(this);
+        renderStrategy = new SnakeRenderAliveStrategy(this);
     }
 
     public void setMoveStrategy(SnakeMoveStrategy moveStrategy){
@@ -51,9 +57,7 @@ public class Snake extends  GameElement{
 
     @Override
     public void render(Graphics2D g2) {
-        for(var b: composite){
-            b.render(g2);
-        }
+        this.renderStrategy.renderAlgorithm(g2);
     }
 
     @Override
