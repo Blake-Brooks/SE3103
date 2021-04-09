@@ -3,20 +3,17 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.util.Random;
-
 import javax.swing.Timer;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import controller.ButtonClickListener;
 import controller.KeyController;
 import controller.TimerListener;
 import model.Food;
 import model.Snake;
-
-
+import model.observerPattern.SnakeObserver;
 
 public class GameBoard {
     public static final int WIDTH = 600;

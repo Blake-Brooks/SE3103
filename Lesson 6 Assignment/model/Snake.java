@@ -1,9 +1,7 @@
 package model;
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
-
 import model.StrategyPattern.SnakeMoveAliveStrategy;
 import model.StrategyPattern.SnakeMoveDeadStrategy;
 import model.StrategyPattern.SnakeMoveStrategy;
@@ -13,7 +11,7 @@ import model.observerPattern.Observer;
 import model.observerPattern.Subject;
 import view.GameBoard;
 
-public class Snake extends  GameElement implements Subject {
+public class Snake extends GameElement implements Subject{
 
     public enum Direction{
         LEFT, RIGHT, UP, DOWN
@@ -48,10 +46,6 @@ public class Snake extends  GameElement implements Subject {
             body.color = Color.white;
             composite.add(body);
         }
-
-        moveStrategy = new SnakeMoveAliveStrategy(this);
-        //moveStrategy = new SnakeMoveDeadStrategy(this);
-        renderStrategy = new SnakeRenderAliveStrategy(this);
     }
 
     public void setMoveStrategy(SnakeMoveStrategy moveStrategy){
@@ -82,9 +76,10 @@ public class Snake extends  GameElement implements Subject {
         observers.remove(o);
     }
 
+    
     @Override
     public void notifyObservers(Event event) {
         
     }
-    
+
 }

@@ -1,11 +1,8 @@
 package model;
-
 import java.awt.Graphics2D;
-
 import view.GameBoard;
 
-public class SnakeBody extends GameElement{
-
+public class SnakeBody extends GameElement {
     public SnakeBody(int x, int y){
         super(x, y);
     }

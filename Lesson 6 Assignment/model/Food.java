@@ -1,7 +1,6 @@
 package model;
 import java.awt.Color;
 import java.awt.Graphics2D;
-
 import view.GameBoard;
 
 public class Food extends GameElement{
