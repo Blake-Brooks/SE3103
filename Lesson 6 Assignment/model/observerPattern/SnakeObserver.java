@@ -1,5 +1,6 @@
 package model.observerPattern;
 import view.GameBoard;
+import view.Text;
 
 public class SnakeObserver implements Observer{
     private GameBoard gameBoard; 
@@ -10,8 +11,10 @@ public class SnakeObserver implements Observer{
     
     @Override
     public void snakeAteFood() {
-        // TODO Auto-generated method stub
-        
+        int score = gameBoard.getScore();
+        ++score;
+        gameBoard.setScore(score);
+        gameBoard.getScoreDisplay().setText("" + score);
     }
 
     @Override
@@ -22,8 +25,7 @@ public class SnakeObserver implements Observer{
 
     @Override
     public void snakeLeftScene() {
-        // TODO Auto-generated method stub
-        
+        gameBoard.getCanvas().getFigures().add(new Text("Game Over - Out of Bounds", 100, 200));
     }
 
     @Override

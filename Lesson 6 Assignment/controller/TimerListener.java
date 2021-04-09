@@ -6,6 +6,7 @@ import model.Food;
 import model.GameElement;
 import model.Snake;
 import model.SnakeBody;
+import model.Snake.Event;
 import view.GameBoard;
 
 public class TimerListener implements ActionListener{
@@ -34,6 +35,9 @@ public class TimerListener implements ActionListener{
             }
         }
         if(snake == null) return;
+        if(snake.x < 0 || snake.x >= GameBoard.WIDTH || snake.y < 0 || snake.y >= GameBoard.HEIGHT){
+            snake.notifyObservers(Event.LeftScene);
+        }
         var removeFoods = new ArrayList<GameElement>();
         for(var f: figures){
             if(f instanceof Snake) continue;
@@ -41,6 +45,7 @@ public class TimerListener implements ActionListener{
                 if(f instanceof Food){
                     removeFoods.add(f);
                     snake.getComposite().add(new SnakeBody(-100, -100));
+                    snake.notifyObservers(Event.AteFood);
                 }
             }
         } 

@@ -21,12 +21,14 @@ public class GameBoard {
     public static final int CELL_SIZE = 20;
     public static final int FPS = 4;
     public static final int DELAY = 1000 / FPS;
+
     private JFrame window; 
     private MyCanvas canvas;
     private JButton startButton = new JButton("Start");
     private JButton stopButton = new JButton("Stop");
     private JButton exitButton = new JButton("Exit");
     private JLabel scoreDisplay = new JLabel(); 
+    private int score = 0;
     private Timer timer; 
     private Snake snake = new Snake();
     public GameBoard(JFrame window){
@@ -40,6 +42,7 @@ public class GameBoard {
         JPanel northPanel = new JPanel();
         JLabel label = new JLabel("Score: ");
         northPanel.add(label);
+        scoreDisplay.setText("" + score);
         northPanel.add(scoreDisplay);
         cp.add(BorderLayout.NORTH, northPanel);
         JPanel southPanel = new JPanel();
@@ -100,5 +103,17 @@ public class GameBoard {
 
     public Snake getSnake(){
         return snake;
+    }
+
+    public int getScore(){
+        return score;
+    }
+
+    public void setScore(int score){
+        this.score = score;
+    }
+
+    public JLabel getScoreDisplay(){
+        return scoreDisplay;
     }
 }

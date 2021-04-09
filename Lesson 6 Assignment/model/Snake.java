@@ -79,7 +79,22 @@ public class Snake extends GameElement implements Subject{
     
     @Override
     public void notifyObservers(Event event) {
-        
+        switch(event){
+            case AteFood:
+            for(var o: observers){
+                o.snakeAteFood();
+            }
+            break;
+            case AtePoison: 
+            break;
+            case LeftScene: 
+            for(var o: observers){
+                o.snakeLeftScene();
+            }
+            break;
+            case SelfCollision: 
+            break;
+        }
     }
 
 }
