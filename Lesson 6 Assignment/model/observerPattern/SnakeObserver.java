@@ -28,7 +28,7 @@ public class SnakeObserver implements Observer{
 
     @Override
     public void snakeLeftScene() {
-        gameBoard.getCanvas().getFigures().add(new Text("Game Over - Self Collision", 100, 200));
+        gameBoard.getCanvas().getFigures().add(new Text("Game Over - Out of Bounds", 100, 200));
         Snake snake = gameBoard.getSnake();
         snake.setMoveStrategy(new SnakeMoveDeadStrategy(snake));
         snake.setRenderStrategy(new SnakeRenderDeadStrategy(snake));
@@ -36,7 +36,7 @@ public class SnakeObserver implements Observer{
 
     @Override
     public void snakeSelfCOllision() {
-        gameBoard.getCanvas().getFigures().add(new Text("Game Over - Out of Bounds", 100, 200));
+        gameBoard.getCanvas().getFigures().add(new Text("Game Over - Self Collision ", 100, 200));
         Snake snake = gameBoard.getSnake();
         snake.setMoveStrategy(new SnakeMoveDeadStrategy(snake));
         snake.setRenderStrategy(new SnakeRenderDeadStrategy(snake));
