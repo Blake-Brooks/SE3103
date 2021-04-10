@@ -42,7 +42,7 @@ public class Snake extends GameElement implements Subject{
         for(int i = 0; i <= INIT_BODY_SIZE; i++){
             int x = INIT_XLOC - i * GameBoard.CELL_SIZE;
             int y = INIT_YLOC;
-            var body = new SnakeBody(x, y);
+            var body = new SnakeBody(super.x, super.y);
             body.color = Color.white;
             composite.add(body);
         }
