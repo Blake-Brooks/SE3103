@@ -49,7 +49,7 @@ public class TimerListener implements ActionListener{
         var removeFoods = new ArrayList<GameElement>();
         for(var f: figures){
             if(f instanceof Snake) continue;
-            if(snake.collidedWith(f)){
+            if(snake.collideWith(f)){
                 if(f instanceof Food){
                     removeFoods.add(f);
                     snake.getComposite().add(new SnakeBody(-100, -100));

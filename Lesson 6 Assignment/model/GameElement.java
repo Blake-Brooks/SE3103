@@ -18,7 +18,7 @@ public abstract class GameElement {
         this.y = y;
     }
 
-    public boolean collidedWith(GameElement another){
+    public boolean collideWith(GameElement another){
         if(this.x == another.x && this.y == another.y)
             return true;
         else

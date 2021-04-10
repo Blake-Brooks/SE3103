@@ -9,6 +9,7 @@ public class Main{
         window.setLocation(500, 200);
         var game = new GameBoard(window);
         game.init();
+        window.setResizable(false);
         window.pack();
         window.setVisible(true);
     }

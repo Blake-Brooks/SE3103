@@ -39,13 +39,21 @@ public class Snake extends GameElement implements Subject{
         head.color = Color.yellow;
         composite.add(head);
         composite.add(new SnakeHead(super.x, super.y));
-        for(int i = 0; i <= INIT_BODY_SIZE; i++){
+        for(int i = 1; i <= INIT_BODY_SIZE; i++){
             int x = INIT_XLOC - i * GameBoard.CELL_SIZE;
             int y = INIT_YLOC;
-            var body = new SnakeBody(super.x, super.y);
+            var body = new SnakeBody(x, y);
             body.color = Color.white;
             composite.add(body);
         }
+        moveStrategy = new SnakeMoveAliveStrategy(this);
+        renderStrategy = new SnakeRenderAliveStrategy(this);
+    }
+
+    
+    @Override
+    public void render(Graphics2D g2) {
+        this.renderStrategy.renderAlgorithm(g2);
     }
 
     public void setMoveStrategy(SnakeMoveStrategy moveStrategy){
@@ -58,11 +66,6 @@ public class Snake extends GameElement implements Subject{
 
     public ArrayList<GameElement> getComposite(){
         return composite;
-    }
-
-    @Override
-    public void render(Graphics2D g2) {
-        this.renderStrategy.renderAlgorithm(g2);
     }
 
     @Override
@@ -108,7 +111,7 @@ public class Snake extends GameElement implements Subject{
         GameElement head = composite.get(0);
         for(int i = 1; i < composite.size(); i++){
             var body = composite.get(i);
-            if(head.collidedWith(body)) return true;
+            if(head.collideWith(body)) return true;
         }
         return false;
     }
