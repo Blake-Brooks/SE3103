@@ -58,6 +58,8 @@ public class GameBoard {
 
         ButtonClickListener buttonListener = new ButtonClickListener(this);
         startButton.addActionListener(buttonListener); 
+        stopButton.addActionListener(buttonListener);
+        exitButton.addActionListener(buttonListener);
 
         KeyController keyController = new KeyController(this);
         canvas.addKeyListener(keyController);
@@ -124,5 +126,9 @@ public class GameBoard {
 
     public boolean isGameOver(){
         return gameOver;
+    }
+
+    public Timer getTimer(){
+        return timer;
     }
 }
