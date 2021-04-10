@@ -1,4 +1,7 @@
 package model.observerPattern;
+import model.Snake;
+import model.StrategyPattern.SnakeMoveDeadStrategy;
+import model.StrategyPattern.SnakeRenderDeadStrategy;
 import view.GameBoard;
 import view.Text;
 
@@ -25,13 +28,18 @@ public class SnakeObserver implements Observer{
 
     @Override
     public void snakeLeftScene() {
-        gameBoard.getCanvas().getFigures().add(new Text("Game Over - Out of Bounds", 100, 200));
+        gameBoard.getCanvas().getFigures().add(new Text("Game Over - Self Collision", 100, 200));
+        Snake snake = gameBoard.getSnake();
+        snake.setMoveStrategy(new SnakeMoveDeadStrategy(snake));
+        snake.setRenderStrategy(new SnakeRenderDeadStrategy(snake));
     }
 
     @Override
     public void snakeSelfCOllision() {
-        // TODO Auto-generated method stub
-        
+        gameBoard.getCanvas().getFigures().add(new Text("Game Over - Out of Bounds", 100, 200));
+        Snake snake = gameBoard.getSnake();
+        snake.setMoveStrategy(new SnakeMoveDeadStrategy(snake));
+        snake.setRenderStrategy(new SnakeRenderDeadStrategy(snake));
     }
     
 }

@@ -30,6 +30,7 @@ public class GameBoard {
     private JLabel scoreDisplay = new JLabel(); 
     private int score = 0;
     private Timer timer; 
+    private boolean gameOver;
     private Snake snake = new Snake();
     public GameBoard(JFrame window){
         this.window = window;
@@ -115,5 +116,13 @@ public class GameBoard {
 
     public JLabel getScoreDisplay(){
         return scoreDisplay;
+    }
+
+    public void setGameOver(boolean gameOver){
+        this.gameOver = gameOver;
+    }
+
+    public boolean isGameOver(){
+        return gameOver;
     }
 }

@@ -21,7 +21,8 @@ public class TimerListener implements ActionListener{
         for(var f: gameBoard.getCanvas().getFigures()){
             f.move();
         }
-        detectCollision();
+        if(!gameBoard.isGameOver())
+            detectCollision();
         gameBoard.getCanvas().repaint();
     }
 
@@ -37,7 +38,14 @@ public class TimerListener implements ActionListener{
         if(snake == null) return;
         if(snake.x < 0 || snake.x >= GameBoard.WIDTH || snake.y < 0 || snake.y >= GameBoard.HEIGHT){
             snake.notifyObservers(Event.LeftScene);
+            gameBoard.setGameOver(true);
         }
+
+        if(snake.SelfCollision()){
+        snake.notifyObservers(Event.SelfCollision);
+        gameBoard.setGameOver(true);
+        }
+        
         var removeFoods = new ArrayList<GameElement>();
         for(var f: figures){
             if(f instanceof Snake) continue;

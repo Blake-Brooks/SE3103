@@ -52,6 +52,10 @@ public class Snake extends GameElement implements Subject{
         this.moveStrategy = moveStrategy;
     }
 
+    public void setRenderStrategy(SnakeRenderStrategy renderStrategy){
+        this.renderStrategy = renderStrategy;
+    }
+
     public ArrayList<GameElement> getComposite(){
         return composite;
     }
@@ -93,8 +97,19 @@ public class Snake extends GameElement implements Subject{
             }
             break;
             case SelfCollision: 
+            for(var o: observers){
+                o.snakeSelfCOllision();
+            }
             break;
         }
     }
 
+    public boolean SelfCollision(){
+        GameElement head = composite.get(0);
+        for(int i = 1; i < composite.size(); i++){
+            var body = composite.get(i);
+            if(head.collidedWith(body)) return true;
+        }
+        return false;
+    }
 }
