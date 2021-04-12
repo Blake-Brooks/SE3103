@@ -10,6 +10,8 @@ import controller.keyController;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import model.EnemyComposite;
 import model.Shooter;
 import model.ShooterElement;
 
@@ -22,6 +24,7 @@ public class GameBoard {
     private JFrame window;
     private MyCanvas canvas;
     private Shooter shooter;
+    private EnemyComposite enemyComposite;
     private Timer timer;
     private TimerListener timerListener;
     public GameBoard(JFrame window){
@@ -49,8 +52,10 @@ public class GameBoard {
 
         startButton.addActionListener(event -> {
             shooter = new Shooter(GameBoard.WIDTH / 2, GameBoard.HEIGHT - ShooterElement.SIZE);
+            enemyComposite = new EnemyComposite();
             canvas.getGameElements().clear();
             canvas.getGameElements().add(shooter);
+            canvas.getGameElements().add(enemyComposite);
             timer.start();
         });
     }
