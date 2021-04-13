@@ -75,4 +75,8 @@ public class GameBoard {
     public Shooter getShooter(){
         return shooter;
     }
+
+    public EnemyComposite getEnemyComposite(){
+        return enemyComposite;
+    }
 }
