@@ -58,6 +58,8 @@ public class GameBoard {
             canvas.getGameElements().add(enemyComposite);
             timer.start();
         });
+
+        quitButton.addActionListener(event -> System.exit(0));
     }
 
     public MyCanvas getCanvas(){

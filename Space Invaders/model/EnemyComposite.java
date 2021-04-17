@@ -96,4 +96,44 @@ public class EnemyComposite extends GameElement {
                 }
             }
         }
+
+        public void removeBombsOutOfBounds(){
+            var remove = new ArrayList<GameElement>();
+            for(var b: bombs){
+                if(b.y >= GameBoard.HEIGHT){
+                    remove.add(b);
+                }
+            }
+            bombs.removeAll(remove);
+        }
+
+        public void processCollision(Shooter shooter){
+            var removeBullets = new ArrayList<GameElement>();
+            for(var row: rows){
+                var removeEnemies = new ArrayList<GameElement>();
+                for(var enemy: row){
+                    for(var bullet: shooter.getWeapons()){
+                        if(enemy.collideWith(bullet)){
+                            removeBullets.add(bullet);
+                            removeEnemies.add(enemy);
+                        }
+                    }
+                }
+                row.removeAll(removeEnemies);
+            }
+            shooter.getWeapons().removeAll(removeBullets);
+            var removeBombs = new ArrayList<GameElement>();
+            removeBullets.clear();
+            for(var b: bombs){
+                for(var bullet: shooter.getWeapons()){
+                    if(b.collideWith(bullet)){
+                        removeBombs.add(b);
+                        removeBullets.add(bullet);
+                    }
+                }
+            }
+
+            shooter.getWeapons().removeAll(removeBullets);
+            bombs.removeAll(removeBombs);
+        }
 }
