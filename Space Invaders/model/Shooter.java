@@ -1,8 +1,9 @@
 package model;
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+
+
 
 public class Shooter extends GameElement{
     public static final int UNIT_MOVE = 10;
@@ -13,7 +14,7 @@ public class Shooter extends GameElement{
     public Shooter(int x, int y){
         super(x, y, 0, 0);
         var size = ShooterElement.SIZE;
-        var s1 = new ShooterElement(x - size, y, Color.white, false);
+        var s1 = new ShooterElement(x - size, y - size, Color.white, false);
         var s2 = new ShooterElement(x, y - size, Color.white, false);
         var s3 = new ShooterElement(x - size, y, Color.white, false);
         var s4 = new ShooterElement(x, y, Color.white, false);
@@ -24,16 +25,16 @@ public class Shooter extends GameElement{
     }
 
     public void moveRight(){
-        super.x -= UNIT_MOVE;
+        super.x += UNIT_MOVE;
         for(var c: components){
-            c.x -= UNIT_MOVE;
+            c.x += UNIT_MOVE;
         }
     }
 
     public void moveLeft() {
-        super.x += UNIT_MOVE;
+        super.x -= UNIT_MOVE;
         for(var c: components){
-            c.x += UNIT_MOVE;
+            c.x -= UNIT_MOVE;
         }
     }
 
