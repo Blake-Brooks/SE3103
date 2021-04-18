@@ -1,4 +1,6 @@
 package model.StrategyPattern;
+import java.util.ArrayList;
+
 import model.Snake;
 import view.GameBoard;
 
@@ -12,7 +14,7 @@ public class SnakeMoveDeadStrategy implements SnakeMoveStrategy{
 
     @Override
     public void moveAlgorithm() {
-           var composite = snake.getComposite();
+           ArrayList<GameElement> composite = snake.getComposite();
         for(var s: composite){
             s.y += GameBoard.CELL_SIZE;
         }
