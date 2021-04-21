@@ -7,6 +7,7 @@ import java.util.Random;
 import view.GameBoard;
 
 public class EnemyComposite extends GameElement {
+
     public static final int NROWS = 2;
     public static final int NCOLS = 10;
     public static final int ENEMY_SIZE = 20;
@@ -68,6 +69,11 @@ public class EnemyComposite extends GameElement {
             b.animate();
         }
     }
+
+        public ArrayList<GameElement> getBombs(){
+            return bombs;
+        }
+
         private int rightEnd(){
             int xEnd = -100;
             for(var row: rows){
@@ -105,6 +111,10 @@ public class EnemyComposite extends GameElement {
                 }
             }
             bombs.removeAll(remove);
+        }
+
+        public void removeBomb(GameElement bomb){
+            bombs.remove(bomb);
         }
 
         public void processCollision(Shooter shooter){

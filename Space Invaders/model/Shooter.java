@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 
 public class Shooter extends GameElement{
+    
     public static final int UNIT_MOVE = 10;
     public static final int MAX_BULLETS = 3;
     private ArrayList<GameElement> components = new ArrayList<>();
@@ -71,5 +72,21 @@ public class Shooter extends GameElement{
             w.animate();
         }
     }
-    
+
+    public void processCollision(EnemyComposite enemies){
+        var componentsToBeRemoved = new ArrayList<GameElement>();
+        var bombsToBeRemoved = new ArrayList<GameElement>();
+        for(var bomb: enemies.getBombs()){
+            for(var component: components){
+                if(component.collideWith(bomb)){
+                    componentsToBeRemoved.add(component);
+                    bombsToBeRemoved.add(bomb);
+                }
+            }
+        }
+        components.removeAll(componentsToBeRemoved);  
+        for(int i = 0; i < bombsToBeRemoved.size(); i++){
+            enemies.removeBomb(bombsToBeRemoved.get(i));
+        }
+    }
 }

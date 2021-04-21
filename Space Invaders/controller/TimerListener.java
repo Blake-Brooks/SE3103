@@ -63,6 +63,7 @@ public class TimerListener implements ActionListener{
         shooter.removeBulletsOutOfBounds();
         enemyComposite.removeBombsOutOfBounds();
         enemyComposite.processCollision(shooter);
+        shooter.processCollision(enemyComposite);
     }
 
     private void update(){
