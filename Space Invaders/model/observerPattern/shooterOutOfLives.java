@@ -8,8 +8,7 @@ public class shooterOutOfLives implements gameObserver{
     }
 
     @Override
-    public void shooterOutOfLives() {
+    public void shooterOutofLives() {
         
-    }
-    
+    }  
 }
