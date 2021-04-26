@@ -14,12 +14,14 @@ public class EnemyComposite extends GameElement {
     public static final int UNIT_MOVE = 5;
 
     private ArrayList<ArrayList<GameElement>> rows;
+    private ArrayList<ArrayList<GameElement>> cols;
     private ArrayList<GameElement> bombs;
     private boolean movingToRight = true;
     private Random random = new Random();
 
     public EnemyComposite(){
         rows = new ArrayList<>();
+        cols = new ArrayList<>();
         bombs = new ArrayList<>();
         for(int r = 0; r < NROWS; r++){
             var oneRow = new ArrayList<GameElement>();
@@ -47,21 +49,30 @@ public class EnemyComposite extends GameElement {
     @Override
     public void animate() {
         int dx = UNIT_MOVE;
+        int dy = ENEMY_SIZE;
         if(movingToRight){
             if(rightEnd() >= GameBoard.WIDTH){
                 dx = -dx;
+                dy = -dy;
                 movingToRight = false;
             }   
         } else{
             dx = -dx;
             if(leftEnd() <= 0){
                 dx = -dx;
+                dy = -dy;
                 movingToRight = true;
             }
         }
         for(var row: rows){
             for(var e: row){
                 e.x += dx;
+            }
+        }
+
+        for(var column: cols){
+            for(var e: column){
+                e.y += dy;
             }
         }
 

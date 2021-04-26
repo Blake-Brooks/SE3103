@@ -11,6 +11,7 @@ public class Shooter extends GameElement{
     public static final int MAX_BULLETS = 3;
     private ArrayList<GameElement> components = new ArrayList<>();
     private ArrayList<GameElement> weapons = new ArrayList<>();
+    private ArrayList<GameElement> enemyInFormation = new ArrayList<>();
 
     public Shooter(int x, int y){
         super(x, y, 0, 0);
@@ -87,6 +88,10 @@ public class Shooter extends GameElement{
         components.removeAll(componentsToBeRemoved);  
         for(int i = 0; i < bombsToBeRemoved.size(); i++){
             enemies.removeBomb(bombsToBeRemoved.get(i));
+        }
+
+        for(var enemy: enemyInFormation){
+
         }
     }
 }
