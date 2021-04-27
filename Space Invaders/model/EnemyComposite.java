@@ -48,6 +48,9 @@ public class EnemyComposite extends GameElement {
 
     @Override
     public void animate() {
+        if(rows.get(rows.size() - 1).get(0).y >= GameBoard.HEIGHT){
+            System.exit(0);
+        }
         int dx = UNIT_MOVE;
         int dy = 20;
         if(movingToRight){
