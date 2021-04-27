@@ -49,18 +49,26 @@ public class EnemyComposite extends GameElement {
     @Override
     public void animate() {
         int dx = UNIT_MOVE;
-        int dy = ENEMY_SIZE;
+        int dy = 20;
         if(movingToRight){
             if(rightEnd() >= GameBoard.WIDTH){
                 dx = -dx;
-                dy = -dy;
+                for(var row: rows){
+                    for(var e: row){
+                        e.y += dy;
+                    }
+                }
                 movingToRight = false;
             }   
         } else{
             dx = -dx;
             if(leftEnd() <= 0){
                 dx = -dx;
-                dy = -dy;
+                for(var row: rows){
+                    for(var e: row){
+                        e.y += dy;
+                    }
+                }
                 movingToRight = true;
             }
         }
@@ -70,17 +78,11 @@ public class EnemyComposite extends GameElement {
             }
         }
 
-        for(var column: cols){
-            for(var e: column){
-                e.y += dy;
-            }
-        }
-
         for(var b: bombs){
             b.animate();
         }
     }
-
+            
         public ArrayList<GameElement> getBombs(){
             return bombs;
         }
