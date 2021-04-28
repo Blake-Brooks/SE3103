@@ -14,16 +14,13 @@ public class Shooter extends GameElement{
     private ArrayList<GameElement> enemyInFormation = new ArrayList<>();
 
     public Shooter(int x, int y){
-        super(x, y, 0, 0);
-        var size = ShooterElement.SIZE;
-        var s1 = new ShooterElement(x - size, y - size, Color.white, false);
-        var s2 = new ShooterElement(x, y - size, Color.white, false);
-        var s3 = new ShooterElement(x - size, y, Color.white, false);
-        var s4 = new ShooterElement(x, y, Color.white, false);
-        components.add(s1);
-        components.add(s2);
-        components.add(s3);
-        components.add(s4);
+      super(x, y, 0, 0);
+
+      var size = ShooterElement.SIZE; 
+      var s1 = new ShooterElement(x- size, y - size, Color.white, false);
+      var s2 = new ShooterElement(x, y - size, Color.white, false);
+      var s3 = new ShooterElement(x- size, y, Color.white, false);
+      var s4 = new ShooterElement(x, y, Color.white, false);
     }
 
     public void moveRight(){
