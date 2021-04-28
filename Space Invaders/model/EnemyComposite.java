@@ -14,14 +14,12 @@ public class EnemyComposite extends GameElement {
     public static final int UNIT_MOVE = 5;
 
     private ArrayList<ArrayList<GameElement>> rows;
-    private ArrayList<ArrayList<GameElement>> cols;
     private ArrayList<GameElement> bombs;
     private boolean movingToRight = true;
     private Random random = new Random();
 
     public EnemyComposite(){
         rows = new ArrayList<>();
-        cols = new ArrayList<>();
         bombs = new ArrayList<>();
         for(int r = 0; r < NROWS; r++){
             var oneRow = new ArrayList<GameElement>();
