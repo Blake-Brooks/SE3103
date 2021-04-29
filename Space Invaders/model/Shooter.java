@@ -21,6 +21,10 @@ public class Shooter extends GameElement{
       var s2 = new ShooterElement(x, y - size, Color.white, false);
       var s3 = new ShooterElement(x- size, y, Color.white, false);
       var s4 = new ShooterElement(x, y, Color.white, false);
+      components.add(s1);
+      components.add(s2);
+      components.add(s3);
+      components.add(s4);
     }
 
     public void moveRight(){
