@@ -9,6 +9,7 @@ import controller.keyController;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import model.EnemyComposite;
@@ -26,6 +27,8 @@ public class GameBoard {
     private Shooter shooter;
     private EnemyComposite enemyComposite;
     private Timer timer;
+    private JLabel displayScore = new JLabel();
+    private int score = 0;
     private TimerListener timerListener;
     public GameBoard(JFrame window){
         this.window = window;
@@ -46,6 +49,12 @@ public class GameBoard {
         southPanel.add(startButton);
         southPanel.add(quitButton);
         cp.add(BorderLayout.SOUTH, southPanel);
+        JPanel northPanel = new JPanel();
+        JLabel label = new JLabel("Score: ");
+        northPanel.add(label);
+        displayScore.setText("" + score);
+        northPanel.add(displayScore);
+        cp.add(BorderLayout.NORTH, northPanel);
         canvas.getGameElements().add(new TextDraw("Click <Start> to play", 100, 100, Color.yellow, 30));
         timerListener = new TimerListener(this);
         timer = new Timer(DELAY, timerListener);
