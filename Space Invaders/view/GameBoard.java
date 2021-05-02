@@ -10,13 +10,15 @@ import controller.keyController;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import model.EnemyComposite;
 import model.Shooter;
 import model.ShooterElement;
+import model.observerPattern.EndOfGameObserver;
 
-public class GameBoard {
+public class GameBoard implements EndOfGameObserver{
     public static final int WIDTH = 600;
     public static final int HEIGHT = 300;
     public static final int FPS = 20;
@@ -65,11 +67,13 @@ public class GameBoard {
             canvas.getGameElements().clear();
             canvas.getGameElements().add(shooter);
             canvas.getGameElements().add(enemyComposite);
+            shooter.addEndOfGameObserver(this);
             timer.start();
         });
 
         quitButton.addActionListener(event -> System.exit(0));
     }
+
 
     public MyCanvas getCanvas(){
         return canvas;
@@ -90,4 +94,10 @@ public class GameBoard {
     public EnemyComposite getEnemyComposite(){
         return enemyComposite;
     }
+
+    @Override
+    public void gameHasEnded(){
+        JOptionPane.showConfirmDialog(null, "Do you want to start a new game", "Restart Game Dialogue", JOptionPane.QUESTION_MESSAGE);
+    }
+
 }

@@ -3,6 +3,9 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import model.observerPattern.EndOfGameObserver;
+import model.observerPattern.gameObserver;
+
 
 
 public class Shooter extends GameElement{
@@ -12,6 +15,21 @@ public class Shooter extends GameElement{
     private ArrayList<GameElement> components = new ArrayList<>();
     private ArrayList<GameElement> weapons = new ArrayList<>();
     private ArrayList<GameElement> enemyInFormation = new ArrayList<>();
+    private ArrayList<EndOfGameObserver> endOfGameObservers = new ArrayList<>();
+
+    public void gameHasEnded(){
+        for(EndOfGameObserver endOfGameObserver: endOfGameObservers){
+            endOfGameObserver.gameHasEnded();
+        }
+    }
+
+    public void addEndOfGameObserver(EndOfGameObserver observer){
+        endOfGameObservers.add(observer);
+    }
+
+    public void removeEndOfGameObserver(EndOfGameObserver observer){
+        endOfGameObservers.remove(observer);
+    }
 
     public Shooter(int x, int y){
       super(x, y, 0, 0);
@@ -90,9 +108,8 @@ public class Shooter extends GameElement{
         for(int i = 0; i < bombsToBeRemoved.size(); i++){
             enemies.removeBomb(bombsToBeRemoved.get(i));
         }
-
-        for(var enemy: enemyInFormation){
-
+        if(components.size() == 0){
+            gameHasEnded();
         }
     }
 }
