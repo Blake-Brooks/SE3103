@@ -30,7 +30,7 @@ public class GameBoard implements EndOfGameObserver{
     private EnemyComposite enemyComposite;
     private Timer timer;
     private JLabel displayScore = new JLabel();
-    private int score = 0;
+    private static int score = 0;
     private TimerListener timerListener;
     public GameBoard(JFrame window){
         this.window = window;
@@ -74,6 +74,13 @@ public class GameBoard implements EndOfGameObserver{
         quitButton.addActionListener(event -> System.exit(0));
     }
 
+    public static int getScore(){
+        return score;
+    }
+
+    public static void setScore(int score){
+       
+    }
 
     public MyCanvas getCanvas(){
         return canvas;

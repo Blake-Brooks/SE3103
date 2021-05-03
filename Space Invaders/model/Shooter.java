@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import model.observerPattern.EndOfGameObserver;
 import model.observerPattern.gameObserver;
+import view.GameBoard;
 
 
 
@@ -107,6 +108,9 @@ public class Shooter extends GameElement{
         components.removeAll(componentsToBeRemoved);  
         for(int i = 0; i < bombsToBeRemoved.size(); i++){
             enemies.removeBomb(bombsToBeRemoved.get(i));
+            int score = GameBoard.getScore();
+            score += 10;
+            GameBoard.setScore(score);
         }
         if(components.size() == 0){
             gameHasEnded();
