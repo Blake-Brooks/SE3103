@@ -4,6 +4,8 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.lang.model.element.Element;
+
 import view.GameBoard;
 
 public class EnemyComposite extends GameElement {
@@ -46,9 +48,27 @@ public class EnemyComposite extends GameElement {
 
     @Override
     public void animate() {
-        if(rows.get(rows.size() - 1).get(0).y >= GameBoard.HEIGHT){
-            System.exit(0);
+        GameElement element;
+        if(rows.get(1).size() == 0){ 
+            if(rows.get(0).size() == 0){
+                System.exit(0);
+            }
+            else{
+               element = rows.get(0).get(0);
+               if(element.y >= GameBoard.HEIGHT){
+                   //game over
+                   System.exit(0); 
+               }
+            } 
         }
+        else {
+            element = rows.get(1).get(0);
+            if(element.y >= GameBoard.HEIGHT){
+                //game over
+                System.exit(0);
+            }
+        }
+
         int dx = UNIT_MOVE;
         int dy = 20;
         if(movingToRight){
@@ -140,11 +160,24 @@ public class EnemyComposite extends GameElement {
                         if(enemy.collideWith(bullet)){
                             removeBullets.add(bullet);
                             removeEnemies.add(enemy);
+                            int score = GameBoard.getScore();
+                            score += 10;
+                            GameBoard.setScore(score);
                         }
                     }
                 }
                 row.removeAll(removeEnemies);
             }
+
+            for(var row: rows){
+                for(var enemy: row){
+                    if(shooter.collideWith(enemy)){
+                        System.exit(0);
+                    } 
+                }
+            }
+
+
             shooter.getWeapons().removeAll(removeBullets);
             var removeBombs = new ArrayList<GameElement>();
             removeBullets.clear();
@@ -153,6 +186,9 @@ public class EnemyComposite extends GameElement {
                     if(b.collideWith(bullet)){
                         removeBombs.add(b);
                         removeBullets.add(bullet);
+                        int score = GameBoard.getScore();
+                        score += 5;
+                        GameBoard.setScore(score);
                     }
                 }
             }

@@ -29,7 +29,7 @@ public class GameBoard implements EndOfGameObserver{
     private Shooter shooter;
     private EnemyComposite enemyComposite;
     private Timer timer;
-    private JLabel displayScore = new JLabel();
+    private static  JLabel displayScore = new JLabel();
     private static int score = 0;
     private TimerListener timerListener;
     public GameBoard(JFrame window){
@@ -78,8 +78,9 @@ public class GameBoard implements EndOfGameObserver{
         return score;
     }
 
-    public static void setScore(int score){
-       
+    public static void setScore(int newScore){
+       score = newScore;
+       displayScore.setText("" + score);
     }
 
     public MyCanvas getCanvas(){
@@ -104,6 +105,7 @@ public class GameBoard implements EndOfGameObserver{
 
     @Override
     public void gameHasEnded(){
+        System.out.println("In here");
         JOptionPane.showConfirmDialog(null, "Do you want to start a new game", "Restart Game Dialogue", JOptionPane.QUESTION_MESSAGE);
     }
 

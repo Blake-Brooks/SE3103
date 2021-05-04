@@ -15,7 +15,6 @@ public class Shooter extends GameElement{
     public static final int MAX_BULLETS = 3;
     private ArrayList<GameElement> components = new ArrayList<>();
     private ArrayList<GameElement> weapons = new ArrayList<>();
-    private ArrayList<GameElement> enemyInFormation = new ArrayList<>();
     private ArrayList<EndOfGameObserver> endOfGameObservers = new ArrayList<>();
 
     public void gameHasEnded(){
@@ -94,6 +93,15 @@ public class Shooter extends GameElement{
         }
     }
 
+    
+    public boolean collidesWith(GameElement another){
+        for(GameElement gameElement: components){
+            if(another.x > gameElement.x + width || gameElement.x > another.x + width
+            || gameElement.y + height < another.y || gameElement.y > another.y + another.height)
+                return true;
+        }
+        return false;
+    }
     public void processCollision(EnemyComposite enemies){
         var componentsToBeRemoved = new ArrayList<GameElement>();
         var bombsToBeRemoved = new ArrayList<GameElement>();
@@ -108,9 +116,6 @@ public class Shooter extends GameElement{
         components.removeAll(componentsToBeRemoved);  
         for(int i = 0; i < bombsToBeRemoved.size(); i++){
             enemies.removeBomb(bombsToBeRemoved.get(i));
-            int score = GameBoard.getScore();
-            score += 10;
-            GameBoard.setScore(score);
         }
         if(components.size() == 0){
             gameHasEnded();
